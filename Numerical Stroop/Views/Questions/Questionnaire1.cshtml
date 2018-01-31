@@ -1,0 +1,70 @@
+﻿@model Numerical_Stroop.Models.QuestionnaireQuestionsViewModel1
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>
+            Please answer <b>the following 8 items</b> selecting the response that is <b>most appropriate to your current situation</b>.
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <ol>
+            <li>
+                What do you feel is the level of your financial stress today?
+                @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question1, "Likert10", new { lowString = "overwhelming stress", highString = "no stress at all" })
+            </li>
+            <li>
+                How satisfied are you with your present financial situation?
+                @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question2, "Likert10", new { lowString = "dissatisfied", highString = "satisfied" })
+            </li>
+            <li>
+                How do you feel about your current financial situation?
+                @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question3, "Likert10", new { lowString = "feel overwhelmed", highString = "feel comfortable" })
+            </li>
+            <li>
+                How often do you worry about being able to meet normal monthly living expenses?
+                @Html.ValidationMessageFor(model => model.Question4, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question4, "Likert10", new { lowString = "worry all the time", highString = "never worry" })
+            </li>
+            <li>
+                How confident are you that you could find the money to pay for a financial emergency that costs $1,000/64,300INR?
+                @Html.ValidationMessageFor(model => model.Question5, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question5, "Likert10", new { lowString = "no confidence", highString = "high confidence" })
+            </li>
+            <li>
+                How often does this happen to you: You want to go out to eat, go to a movie or do something else and don’t go because you can’t afford it?
+                @Html.ValidationMessageFor(model => model.Question6, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question6, "Likert10", new { lowString = "all the time", highString = "never" })
+            </li>
+            <li>
+                How frequently do you find yourself just getting by financially and living pay check to pay check?
+                @Html.ValidationMessageFor(model => model.Question7, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question7, "Likert10", new { lowString = "all the time", highString = "never" })
+            </li>
+            <li>
+                How stressed do you feel about your personal finances in general?
+                @Html.ValidationMessageFor(model => model.Question8, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question8, "Likert10", new { lowString = "overwhelming stress", highString = "no stress at all" })
+            </li>
+        </ol>
+
+
+
+        <div class="form-group">
+            <div class="col-x-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

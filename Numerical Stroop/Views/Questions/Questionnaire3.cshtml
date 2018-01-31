@@ -1,0 +1,131 @@
+﻿@model Numerical_Stroop.Models.QuestionnaireQuestionsViewModel3
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>
+            Please answer <b>the following 19 items</b> by clicking to indicate <b>
+            how much you agree with each statement</b>. Provide a rating from <i>Strongly disagree</i> to <i>Strongly agree</i>.
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <ol>
+            <li>
+                Most people are basically honest
+                @Html.ValidationMessageFor(model => model.Question41, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question41, "Likert5")
+            </li>
+            <li>
+                Most people are trustworthy
+                @Html.ValidationMessageFor(model => model.Question42, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question42, "Likert5")
+            </li>
+            <li>
+                Most people are basically good and kind
+                @Html.ValidationMessageFor(model => model.Question43, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question43, "Likert5")
+            </li>
+            <li>
+                Most people are trustful of others
+                @Html.ValidationMessageFor(model => model.Question44, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question44, "Likert5")
+            </li>
+            <li>
+                I am trustful
+                @Html.ValidationMessageFor(model => model.Question45, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question45, "Likert5")
+            </li>
+            <li>
+                Most people will respond in kind when they are trusted by others
+                @Html.ValidationMessageFor(model => model.Question46, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question46, "Likert5")
+            </li>
+            <li>
+                I would like my child(ren) to be raised in the neighbourhood I currently live
+                @Html.ValidationMessageFor(model => model.Question47, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question47, "Likert5")
+            </li>
+            <li>
+                Daily life in my neighbourhood gives me doubts about my survival
+                @Html.ValidationMessageFor(model => model.Question48, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question48, "Reverse_Likert5")
+            </li>
+            <li>
+                Living where I live guarantees me a secure future
+                @Html.ValidationMessageFor(model => model.Question49, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question49, "Likert5")
+            </li>
+            <li>
+                I consider daily life in my neighbourhood to be violent
+                @Html.ValidationMessageFor(model => model.Question50, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question50, "Reverse_Likert5")
+            </li>
+            <li>
+                I do a lot of good things in my neighbourhood
+                @Html.ValidationMessageFor(model => model.Question51, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question51, "Likert5")
+            </li>
+            <li>
+                I feel threatened while traveling in my neighbourhood
+                @Html.ValidationMessageFor(model => model.Question52, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question52, "Reverse_Likert5")
+            </li>
+            <li>
+                I feel satisfied with the quality of educational institutions in my neighbourhood
+                @Html.ValidationMessageFor(model => model.Question53, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question53, "Likert5")
+            </li>
+            <li>
+                I feel more threatened traveling in my neighbourhood than in others
+                @Html.ValidationMessageFor(model => model.Question54, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question54, "Reverse_Likert5")
+            </li>
+            <li>
+                The ease of transportation is one of the advantages of living where I do
+                @Html.ValidationMessageFor(model => model.Question55, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question55, "Likert5")
+            </li>
+            <li>
+                My neighbourhood offers good and reasonably priced options for leisure/fun
+                @Html.ValidationMessageFor(model => model.Question56, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question56, "Likert5")
+            </li>
+            <li>
+                I am frequently present to violent situations in the neighbourhood I live in
+                @Html.ValidationMessageFor(model => model.Question57, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question57, "Reverse_Likert5")
+            </li>
+            <li>
+                I feel satisfied with the health services (hospitals, clinics) present in my neighbourhood
+                @Html.ValidationMessageFor(model => model.Question58, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question58, "Likert5")
+            </li>
+            <li>
+                There are advantages to living in my neighbourhood
+                @Html.ValidationMessageFor(model => model.Question59, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question59, "Likert5")
+            </li>
+            <li>
+                I have a strong support network of family and friends
+                @Html.ValidationMessageFor(model => model.Question60, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question60, "Likert5")
+            </li>
+        </ol>
+
+
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

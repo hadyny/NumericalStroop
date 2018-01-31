@@ -1,0 +1,54 @@
+﻿@model Numerical_Stroop.Models.NumericPostPracticeQuestion
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-xs-8" for="Question1">
+                If there were three numbers presented on the screen, how would you respond? E.g.&nbsp;444&nbsp;or&nbsp;333
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question1, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-8" for="Question2">
+                If there was one number presented on the screen, how would you respond? E.g.&nbsp;3&nbsp;or&nbsp;5
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question2, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-8" for="Question3">
+                If there were two numbers presented on the screen, how would you respond? E.g.&nbsp;22&nbsp;or&nbsp;11
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question3, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <div>
+                <button type="submit" value="" class="btn btn-primary btn-lg">Click here to continue to the task</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

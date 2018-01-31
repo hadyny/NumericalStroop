@@ -1,0 +1,133 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+textarea.form-control {
+    height: 100px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select {
+    max-width: 280px;
+}
+
+table.likert {
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #f5f5f5;
+}
+
+    table.likert tbody td {
+        width: 75px;
+        text-align: center;
+    }
+
+    table.likert thead th {
+        text-align: left;
+    }
+
+        table.likert thead th:nth-child(2) {
+            text-align: right;
+        }
+
+    li table.likert {
+        margin-top: 10px;
+    }
+
+
+.task-display {
+    font-size: 130px;
+    margin-top: 100px;
+}
+
+.sequence-practice {
+    background-color: #000;
+    color: #eee;
+    padding: 50px;
+}
+
+.sequence-practice h1 {
+    margin-bottom: 50px;
+}
+
+.sequence-practice .sequence-hint {
+    margin-top: 30px;
+}
+
+.sequence-options {
+    font-size: 24px;
+}
+
+.sequence-options b {
+    border: 2px solid #eee;
+    border-spacing: 2px;
+}
+
+.black-task {
+    background-color: #000;
+    color: #eee;
+}
+
+.sequence-task h1 {
+    font-size: 160px;
+}
+
+.sequence-task .row {
+    margin: 0;
+    padding-top: 10%;
+}
+
+img.sequence-example, img.memory-example {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.consent h5 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+a.btn, input[type=submit].btn {
+    margin-top: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.demographics label {
+    margin-top: 20px;
+}
+
+.demographics label.dont-say, .demographics dl label {
+    margin-top: inherit;
+}
+
+ol.scenario {
+    font-size: 18px;
+}
+
+.form-horizontal.row .col-xs-4 img {
+    width: 100%;
+    padding: 10px;
+}
+
+#value-text {
+    font-size: 100px;
+    margin-top: 100px;
+}

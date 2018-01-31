@@ -1,0 +1,68 @@
+﻿@model Numerical_Stroop.Models.CountingTaskResponse
+
+
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 text-center hidden" id="Numbers"> 
+        <h2>How many figures are there?</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Pid)
+            @Html.HiddenFor(m => m.Response)
+            @Html.HiddenFor(m => m.ResponseTime)
+            @Html.HiddenFor(m => m.TrialNumber)
+
+            
+            <h1 class="task-display">@ViewBag.TaskNumbers</h1>
+        }
+
+        <img src="~/Content/keyboard.jpg" alt="Keyboard" />
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var elapsed = 0;
+        window.onkeypress = function (e) {
+            e = e || event;
+            var key = e.keyCode ? e.keyCode : e.which;
+            if (key > 48 && key < 54) {
+                clearInterval(myTimer);
+                document.getElementById('ResponseTime').value = elapsed;
+                document.getElementById('Response').value = String.fromCharCode(key);
+
+
+                var el = document.getElementById('Numbers');
+                if (el.classList) {
+                    el.classList.add('hidden');
+                }
+                else {
+                    el.className += ' ' + 'hidden';
+                }
+
+                setTimeout(function () { document.forms[0].submit(); }, 500);
+            }
+        };
+
+        function myTimer() {
+            elapsed++;
+        }
+
+        window.onload = function () {
+
+            var el = document.getElementById('Numbers');
+            var className = 'hidden';
+            if (el.classList) {
+                el.classList.remove(className);
+            }
+            else {
+                el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            }
+
+            setInterval(myTimer, 1);
+        };
+
+
+    </script>
+}

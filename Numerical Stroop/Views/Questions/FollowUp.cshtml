@@ -1,0 +1,63 @@
+﻿@model Numerical_Stroop.Models.FollowUpQuestions
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>
+            Please answer the following items by clicking on the numbers to indicate how much each statement applies to you. 
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <ol>
+            <li>
+                I solved the task instinctively/on a gut level
+                @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question1, "Likert5")
+            </li>
+            <li>
+                I tried to take all information into account and act systematically
+                @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question2, "Likert5")
+            </li>
+            <li>
+                At times during the game I felt a thrill
+                @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question3, "Likert5")
+            </li>
+            <li>
+                I mainly followed my feelings when making my decisions in the tasks
+                @Html.ValidationMessageFor(model => model.Question4, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question4, "Likert5")
+            </li>
+            <li>
+                I made my decisions in the tasks through careful thinking
+                @Html.ValidationMessageFor(model => model.Question5, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question5, "Likert5")
+            </li>
+            <li>
+                I made my decisions in the tasks based on intuition
+                @Html.ValidationMessageFor(model => model.Question6, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question6, "Likert5")
+            </li>
+        </ol>
+
+
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

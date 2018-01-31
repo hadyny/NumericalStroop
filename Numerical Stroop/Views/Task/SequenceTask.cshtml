@@ -1,0 +1,75 @@
+﻿@model Numerical_Stroop.Models.SequenceTaskResponse
+
+@{ 
+    Layout = "~/Views/Shared/_Layout-Black.cshtml";
+}
+
+<div>
+    <div class="text-center">
+        <div id="task" class="sequence-task">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.Pid)
+                @Html.HiddenFor(m => m.Response)
+                @Html.HiddenFor(m => m.ResponseTime)
+                @Html.HiddenFor(m => m.TrialNumber)
+
+
+
+                <h1 class="task-display">@ViewBag.TaskLetter</h1>
+
+                <div class="sequence-options row">
+                    <div class="col-xs-6">Press <b>1</b> for YES</div>
+                    <div class="col-xs-6">Press <b>0</b> for NO</div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var elapsed = 0;
+        window.onkeypress = function (e) {
+            e = e || event;
+            var key = e.keyCode ? e.keyCode : e.which;
+            if (key == 48 || key == 49) {
+                clearInterval(myTimer);
+                document.getElementById('ResponseTime').value = elapsed;
+                document.getElementById('Response').value = String.fromCharCode(key);
+
+                var el = document.getElementById('task');
+                if (el.classList) {
+                    el.classList.add('hidden');
+                }
+                else {
+                    el.className += ' ' + 'hidden';
+                }
+
+                setTimeout(function () { document.forms[0].submit(); }, 500);
+            }
+        };
+
+        function myTimer() {
+            elapsed++;
+        }
+
+        window.onload = function () {
+
+            var el = document.getElementById('task');
+            var className = 'hidden';
+            if (el.classList) {
+                el.classList.remove(className);
+            }
+            else {
+                el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            }
+
+            setInterval(myTimer, 1);
+        };
+</script>
+}

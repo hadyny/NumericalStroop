@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 text-center">
+        <h2>Counting Task</h2>
+        <p>
+            In the following task you will <b>count the number of figures (i.e. numbers)</b> on the screen and
+            <b>select the corresponding number</b> on your keyboard between 1 and 5.
+        </p>
+
+        <img src="~/Content/keyboard.jpg" alt="Keyboard" />
+
+        <div>
+            <h4>Here are two examples:</h4>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>22</th>
+                        <td>You should press the number <strong>2</strong> on your keyboard because the figure (2) is shown two times.</td>
+                    </tr>
+                    <tr>
+                        <th>555</th>
+                        <td>You should press the number <strong>3</strong> on your keyboard because the figure (5) is shown three times.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>As soon as the figures appear on your screen, count them and <strong>respond as quickly as possible</strong>. You will be scored on your speed and accuracy.</h4>
+
+
+        @Html.ActionLink("Continue >>", "CountingTaskPractice", new { id = ViewBag.Pid }, new { @class = "btn btn-default" })
+    </div>
+</div>

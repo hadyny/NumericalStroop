@@ -1,0 +1,107 @@
+﻿
+<div class="consent">
+    <div class="text-center">
+        <img src="~/Content/UniversityLogo.png" alt="University Logo" />
+
+        <h3>
+            <em>
+                SCENARIO RESPONDING AND COGNITIVE ABILITY
+            </em>
+        </h3>
+        <h3>
+            INFORMATION  SHEET  FOR  PARTICIPANTS
+        </h3>
+    </div>
+    <hr />
+    <div>
+        <p>
+            Thank you for showing an interest in this project.  Please read this information sheet carefully before deciding whether or not to participate.  If you decide to participate we thank you.  If you decide not to take part there will be no disadvantage to you and we thank you for considering our request.
+        </p>
+
+        <h5>What is the Aim of the Project?</h5>
+        <p>
+            The aim of this project is to explore how people reason through scenario problems and how this relates to their performance on cognitive tasks. This project is being undertaken as part of the requirements for a PhD in Psychology.
+        </p>
+
+        <h5>What Types of Participants are being sought?</h5>
+        <p>
+            We are seeking to recruit a community sample of approximately 200 participants. Participants are being recruited from both the US and India through Mechanical Turk (MTurk). Only people with an MTurk approval rate above 95% will be accepted for the study. Participants will be reimbursed according to the HIT reward posted for this study.
+        </p>
+
+        <h5>What will Participants be asked to do?</h5>
+        <p>
+            Should you agree to take part in this project, you will be asked to complete the following tasks:
+        </p>
+        <ol>
+            <li>Read and respond to four scenario questions</li>
+            <li>Complete a counting task</li>
+            <li>Complete a sequence task</li>
+            <li>Respond to a questionnaire</li>
+            <li>Provide demographic (e.g. age, gender, ethnicity, income) information</li>
+        </ol>
+        <p>
+            The whole procedure will be completed online and should take approximately 20 minutes to complete.
+        </p>
+        <p>Please be aware that you may decide not to take part in the project without any disadvantage to yourself.</p>
+
+        <h5>What Data or Information will be collected and what use will be made of it?</h5>
+        <p>Your responses on the tasks above will be collected as the raw data. This includes some demographic information including personal income information. If you do not wish to respond to some of the personal questions you do not have to. Once the data is collected it will be summarised for analysis and no results will be linked back to any one individual. Only the researcher and their supervisor will have access to the data. </p>
+        <p>The data collected will be securely stored in such a way that only those mentioned below will be able to gain access to it. Data obtained as a result of the research will be retained for at least 5 years in secure storage. Any personal information held on the participants may be destroyed at the completion of the research even though the data derived from the research will, in most cases, be kept for much longer or possibly indefinitely.</p>
+        <p>The results of the project may be published and will be available in the University of Otago Library (Dunedin, New Zealand) but every attempt will be made to preserve your anonymity.</p>
+        <p>Participants will be provided with a summary of the results of the study should they choose to.</p>
+
+        <h5>Can Participants change their mind and withdraw from the project?</h5>
+        <p>You may withdraw from participation in the project now without any disadvantage to yourself.</p>
+
+        <h5>What if Participants have any Questions?</h5>
+        <p>If you have any questions about our project, either now or in the future, please feel free to contact either:-</p>
+
+        <dl>
+            <dd>Shannon Tumataroa</dd>
+            <dd>Department of Psychology</dd>
+            <dd>University Telephone Number (New Zealand): <a href="tel:+6434797357">+643 479 7357</a></dd>
+            <dd>Email Address: <a href="mailto:moneymanagementstudy@gmail.com">moneymanagementstudy@gmail.com</a></dd>
+        </dl>
+        <p>This study has been approved by the Department stated above. However, if you have any concerns about the ethical conduct of the research you may contact the University of Otago Human Ethics Committee through the Human Ethics Committee Administrator (ph +643 4798256). Any issues you raise will be treated in confidence and investigated and you will be informed of the outcome.</p>
+
+        <h5>Declaration/Consent</h5>
+        <p>
+            I have read the Information Sheet concerning this project and understand what it is about.  All my questions have been answered to my satisfaction.  I understand that I am free to request further information at any stage.
+        </p>
+        <p>
+            I know that:-
+        </p>
+        <ol>
+            <li>My participation in the project is entirely voluntary;</li>
+            <li>I am free to withdraw from the project at any time without any disadvantage;</li>
+            <li>Personal identifying information will not be collected but any raw data on which the results of the project depend will be retained in secure storage for at least five years;</li>
+            <li>I will receive reimbursement for my time equal to the reward for this posted HIT;</li>
+            <li>I must complete the experiment in its entirety to receive reimbursement unless there is a technical issue with the task or I am uncomfortable answering any of the questions;</li>
+            <li>The results of the project may be published and will be available in the University of Otago Library (Dunedin, New Zealand) but every attempt will be made to preserve my anonymity.</li>
+        </ol>
+
+        <label>
+            <input type="checkbox" class="checkbox checkbox-inline js-confirm" />
+            I agree to take part in this project.
+        </label>
+    </div>
+
+    <a href="@Url.Action("Scenario1", "Scenario", new { id = ViewBag.Id })" class="btn btn-primary disabled js-continue">Continue >></a>
+
+</div>
+
+
+
+
+@section Scripts {
+    <script>
+        $('.js-confirm').click(function () {
+            if ($('.js-confirm')[0].checked) {
+                $('.js-continue').removeClass('disabled');
+            }
+            else {
+                $('.js-continue').addClass('disabled');
+            }
+        });
+    </script>
+}

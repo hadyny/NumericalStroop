@@ -1,0 +1,104 @@
+﻿@model Numerical_Stroop.Models.MemoryTaskResponse
+
+
+<h2 class="text-center">List @Model.TrialNumber</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.HiddenFor(m => m.Pid)
+        @Html.HiddenFor(m => m.TrialNumber)
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <p id="instructions" class="hidden">
+            Please select the <b>most recent</b> word you saw for each category (i.e. what were the last words presented?):
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-xs-3">Categories:</th>
+                    @if (ViewBag.AnimalCategory != null)
+                    {
+                    <th class="col-xs-3">Animals</th>
+                    }
+                    @if (ViewBag.ThingCategory != null)
+                    {
+                    <th class="col-xs-3">Things</th>
+                    }
+                    @if (ViewBag.CountryCategory != null)
+                    {
+                    <th class="col-xs-3">Countries</th>
+                    }
+                </tr>
+            </thead>
+            <tbody id="table-options" class="hidden small">
+                <tr>
+                    <td></td>
+                    @if (ViewBag.AnimalCategory != null)
+                    {
+                    <td>@Html.DropDownListFor(m => m.AnimalResponse, (IEnumerable<SelectListItem>)ViewBag.Animals, "", new { @class = "form-control" })</td>
+                    }
+                    @if (ViewBag.ThingCategory != null)
+                    {
+                    <td>@Html.DropDownListFor(m => m.ThingResponse, (IEnumerable<SelectListItem>)ViewBag.Things, "", new { @class = "form-control" })</td>
+                    }
+                    @if (ViewBag.CountryCategory != null)
+                    {
+                    <td>@Html.DropDownListFor(m => m.CountryResponse, (IEnumerable<SelectListItem>)ViewBag.Countries, "", new { @class = "form-control" })</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <h1 id="value-text" class="text-center"><small>Ready...</small></h1>
+        </div>
+
+
+
+        <div class="form-group text-center">
+            <div>
+                <input type="submit" value="Continue >>" class="btn btn-default btn-lg disabled js-next hidden" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+    var texts = [@{foreach (var i in ViewBag.Items as string[]) { <text>'@(i)',</text> }}];
+
+    $('select').on('change', function () {
+        if ($("select").filter(function () { return $.trim($(this).val()).length == 0 }).length == 0) {
+            $('.js-next').removeClass('disabled');
+        } else {
+            $('.js-next').addClass('disabled');
+        }
+    });
+
+
+    $(document).ready(function () {
+
+        var x = 0;
+        var interval = setInterval(function () {
+            $('#value-text').text(texts[x]);
+            $('#value-text').removeClass('hidden');
+
+
+            if (++x === texts.length+1) {
+                $('#value-text').addClass('hidden');
+                $('#table-options').removeClass('hidden');
+                $('.js-next').removeClass('hidden');
+                $('#instructions').removeClass('hidden');
+                clearInterval(interval);
+            }
+        }, 2500);
+
+    });
+    </script>
+}

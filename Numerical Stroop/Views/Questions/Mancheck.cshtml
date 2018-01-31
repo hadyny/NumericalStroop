@@ -1,0 +1,126 @@
+﻿@model Numerical_Stroop.Models.ManipulationCheck
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>
+            Please respond to the statements below describing your feelings about <strong>the written scenario task you have just completed</strong>.
+            Provide a rating from <em>Strongly Disagree</em> to <em>Strongly Agree</em>.
+        </h4>
+
+        <ol>
+            <li>
+                I put a lot of effort into the task
+                @Html.ValidationMessageFor(model => model.ManipulationCheck1, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck1, "Likert5")
+            </li>
+            <li>
+                I feel tired after doing the task
+                @Html.ValidationMessageFor(model => model.ManipulationCheck2, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck2, "Likert5")
+            </li>
+            <li>
+                I enjoyed the task
+                @Html.ValidationMessageFor(model => model.ManipulationCheck3, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck3, "Likert5")
+            </li>
+            <li>
+                I found the task difficult
+                @Html.ValidationMessageFor(model => model.ManipulationCheck4, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck4, "Likert5")
+            </li>
+            <li>
+                I felt frustrated while I was doing the task
+                @Html.ValidationMessageFor(model => model.ManipulationCheck5, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck5, "Likert5")
+            </li>
+        </ol>
+
+
+        <h4>Thinking about <strong>how you feel right now</strong>, to what extent do you feel each
+            of the following emotions? Provide a rating for each emotion from <em>Strongly Disagree</em>
+            to <em>Strongly Agree</em>:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <ol start="6">
+            <li>
+                Upset
+                @Html.ValidationMessageFor(model => model.ManipulationCheck6, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck6, "Likert5")
+            </li>
+            <li>
+                Hostile
+                @Html.ValidationMessageFor(model => model.ManipulationCheck7, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck7, "Likert5")
+            </li>
+            <li>
+                Alert
+                @Html.ValidationMessageFor(model => model.ManipulationCheck8, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck8, "Likert5")
+            </li>
+            <li>
+                Ashamed
+                @Html.ValidationMessageFor(model => model.ManipulationCheck9, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck9, "Likert5")
+            </li>
+            <li>
+                Inspired
+                @Html.ValidationMessageFor(model => model.ManipulationCheck10, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck10, "Likert5")
+            </li>
+            <li>
+                Nervous
+                @Html.ValidationMessageFor(model => model.ManipulationCheck11, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck11, "Likert5")
+            </li>
+            <li>
+                Stressed
+                @Html.ValidationMessageFor(model => model.ManipulationCheck12, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck12, "Likert5")
+            </li>
+            <li>
+                Determined
+                @Html.ValidationMessageFor(model => model.ManipulationCheck13, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck13, "Likert5")
+            </li>
+            <li>
+                Attentive
+                @Html.ValidationMessageFor(model => model.ManipulationCheck14, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck14, "Likert5")
+            </li>
+            <li>
+                Afraid
+                @Html.ValidationMessageFor(model => model.ManipulationCheck15, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck15, "Likert5")
+            </li>
+            <li>
+                Active
+                @Html.ValidationMessageFor(model => model.ManipulationCheck16, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck16, "Likert5")
+            </li>
+            <li>
+                Worried
+                @Html.ValidationMessageFor(model => model.ManipulationCheck17, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.ManipulationCheck17, "Likert5")
+            </li>
+        </ol>
+
+
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

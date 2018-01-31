@@ -1,0 +1,28 @@
+﻿<div class="text-center">
+    <h2>Sequence Task</h2>
+    <p>
+        In the sequence task, a single letter will appear on the screen one at a time. You will report if <b>
+            the letter currently
+            on the screen is the same as the letter that appeared two trials back.
+        </b>
+    </p>
+    <p>
+        Press the number <b>"1"</b> on your keyboard for <b>YES (it IS the same)</b> and the number <b>"0"</b> on your
+        keyboard for <b>NO (it IS NOT the same).</b>
+    </p>
+    <p>
+        Letters will be presented continuously for 50 trials total.
+        <b>If you get confused or lose your place don't worry, just try to pick up the sequence again.</b>
+    </p>
+    <div class="row">
+        <div class="col-xs-4 text-right"><strong>YES (it is the same)</strong></div>
+        <div class="col-xs-4 col-xs-offset-4 text-left"><strong>NO (it is not the same)</strong></div>
+    </div>
+    <div class="text-center">
+        <img src="~/Content/keyboard-10.jpg" alt="Keyboard" />
+    </div>
+
+    <p>
+        @Html.ActionLink("Click here to continue", "SequenceTaskExample", new { id = ViewBag.Pid }, new { @class = "btn btn-default" })
+    </p>
+</div>

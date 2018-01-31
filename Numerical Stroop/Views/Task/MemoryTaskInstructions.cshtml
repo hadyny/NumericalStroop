@@ -1,0 +1,32 @@
+﻿
+<div class="text-center">
+    <h2>Memory Task</h2>
+
+    <p>
+        In the following task you will be presented with lists of words. There will be three categories
+        of words: <b>Animals (e.g. cat, dog), Countries (e.g. India, US), and Things (e.g. desk, phone).</b>
+    </p>
+
+    <p>
+        You will be asked to remember which word came last in each category (i.e. which word you remember 
+        seeing most recently). This means you need to keep track of each new word on the screen and think 
+        about what category it belongs to.
+    </p>
+    <p>
+        <b>Words will be presented for 2 seconds only</b> so you will need to pay attention.
+    </p>
+    <p>
+        Here is an example:
+    </p>
+
+    <img src="~/Content/MemoryExample.jpg" alt="Memory Example" class="memory-example" />
+
+    <p>
+        In this case the answer would be Bird and Chair because they were the most recent words presented. You will be presented with 10 different lists.
+    </p>
+    <p>
+        Be aware that the words and categories will change on each list. <B>You will be scored on your correct responses.</B>
+    </p>
+
+    @Html.ActionLink("Click here to continue to practice trials", "MemoryTaskPractice", new { id = ViewBag.Pid }, new { @class = "btn btn-default btn-lg" })
+</div>

@@ -1,0 +1,47 @@
+﻿@model Numerical_Stroop.Models.Scenario
+
+<h2>Scenario 1</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal row">
+        <div class="col-xs-8">
+            <h4>
+                Imagine the population of your town is going to increase by @ViewBag.Question1% over the next
+                5 years. If the population increased, could your town or city be able to keep the
+                same level of public services like hospitals, schools, police and fire departments? If not, what
+                changes would need to be made?
+            </h4>
+            <hr />
+            <h4>
+                Please write how you would respond to this scenario in the box below. Be as detailed as possible. You may write as little or as much as you need to answer the question:
+            </h4>
+        </div>
+        <div class="col-xs-4">
+            <img src="~/Content/Image-control-scenario-1.png" alt="Financial Image" />
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('#Answer').focus();
+</script>
+}

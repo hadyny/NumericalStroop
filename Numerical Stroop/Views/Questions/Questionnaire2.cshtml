@@ -1,0 +1,191 @@
+﻿@model Numerical_Stroop.Models.QuestionnaireQuestionsViewModel2
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>
+            Please answer <b>the following 32 items</b> by clicking to indicate <b>how much you agree with each 
+            statement</b>. Provide a rating from <i>Strongly disagree</i> to <i>Strongly agree</i>.
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <ol>
+            <li>
+                I would prefer complex to simple problems
+                @Html.ValidationMessageFor(model => model.Question9, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question9, "Likert5")
+            </li>
+            <li>
+                I like to have the responsibility of handling a situation that requires a lot of thinking
+                @Html.ValidationMessageFor(model => model.Question10, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question10, "Likert5")
+            </li>
+            <li>
+                Thinking is not my idea of fun
+                @Html.ValidationMessageFor(model => model.Question11, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question11, "Reverse_Likert5")
+            </li>
+            <li>
+                I would rather do something that requires little thought than something that is sure to challenge my thinking abilities
+                @Html.ValidationMessageFor(model => model.Question12, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question12, "Reverse_Likert5")
+            </li>
+            <li>
+                I try to anticipate and avoid situations where there is likely a chance I will have to think in depth about something
+                @Html.ValidationMessageFor(model => model.Question13, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question13, "Reverse_Likert5")
+            </li>
+            <li>
+                I find satisfaction in deliberating hard and for long hours
+                @Html.ValidationMessageFor(model => model.Question14, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question14, "Likert5")
+            </li>
+            <li>
+                I only think as hard as I have to
+                @Html.ValidationMessageFor(model => model.Question15, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question15, "Reverse_Likert5")
+            </li>
+            <li>
+                I prefer to think about small, daily projects to long-term ones
+                @Html.ValidationMessageFor(model => model.Question16, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question16, "Reverse_Likert5")
+            </li>
+            <li>
+                I like tasks that require little thought once I’ve learned them
+                @Html.ValidationMessageFor(model => model.Question17, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question17, "Reverse_Likert5")
+            </li>
+            <li>
+                The idea of relying on thought to make my way to the top appeals to me
+                @Html.ValidationMessageFor(model => model.Question18, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question18, "Likert5")
+            </li>
+            <li>
+                I really enjoy a task that involves coming up with new solutions to problems
+                @Html.ValidationMessageFor(model => model.Question19, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question19, "Likert5")
+            </li>
+            <li>
+                Learning new ways to think doesn’t excite me very much
+                @Html.ValidationMessageFor(model => model.Question20, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question20, "Reverse_Likert5")
+            </li>
+            <li>
+                I prefer my life to be filled with puzzles that I must solve
+                @Html.ValidationMessageFor(model => model.Question21, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question21, "Likert5")
+            </li>
+            <li>
+                The notion of thinking abstractly is appealing to me
+                @Html.ValidationMessageFor(model => model.Question22, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question22, "Likert5")
+            </li>
+            <li>
+                I would prefer a task that is intellectual, difficult, and important to one that is somewhat important but does not require much 
+                @Html.ValidationMessageFor(model => model.Question23, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question23, "Likert5")
+            </li>
+            <li>
+                I feel relief rather than satisfaction after completing a task that required a lot of mental effort
+                @Html.ValidationMessageFor(model => model.Question24, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question24, "Reverse_Likert5")
+            </li>
+            <li>
+                It's enough for me that something gets the job done; I don’t care how or why it works
+                @Html.ValidationMessageFor(model => model.Question25, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question25, "Reverse_Likert5")
+            </li>
+            <li>
+                I usually end up deliberating about issues even when do not affect me personally
+                @Html.ValidationMessageFor(model => model.Question26, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question26, "Likert5")
+            </li>
+            <li>
+                I am good at resisting temptation
+                @Html.ValidationMessageFor(model => model.Question27, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question27, "Likert5")
+            </li>
+            <li>
+                I have a hard time breaking bad habits
+                @Html.ValidationMessageFor(model => model.Question28, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question28, "Reverse_Likert5")
+            </li>
+            <li>
+                I am lazy
+                @Html.ValidationMessageFor(model => model.Question29, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question29, "Reverse_Likert5")
+            </li>
+            <li>
+                I say inappropriate things
+                @Html.ValidationMessageFor(model => model.Question30, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question30, "Reverse_Likert5")
+            </li>
+            <li>
+                For this question please select strongly disagree to show you are attending to the task
+                @Html.ValidationMessageFor(model => model.Question31, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question31, "Likert5")
+            </li>
+            <li>
+                I do certain things that are bad for me if they are fun
+                @Html.ValidationMessageFor(model => model.Question32, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question32, "Reverse_Likert5")
+            </li>
+            <li>
+                I refuse things that are bad for me
+                @Html.ValidationMessageFor(model => model.Question33, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question33, "Likert5")
+            </li>
+            <li>
+                I wish I had more self-discipline
+                @Html.ValidationMessageFor(model => model.Question34, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question34, "Reverse_Likert5")
+            </li>
+            <li>
+                People would say that I have iron self-discipline
+                @Html.ValidationMessageFor(model => model.Question35, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question35, "Likert5")
+            </li>
+            <li>
+                Pleasure and fun sometimes keep me from getting work done
+                @Html.ValidationMessageFor(model => model.Question36, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question36, "Reverse_Likert5")
+            </li>
+            <li>
+                I have trouble concentrating
+                @Html.ValidationMessageFor(model => model.Question37, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question37, "Reverse_Likert5")
+            </li>
+            <li>
+                I am able to work effectively toward long term goals
+                @Html.ValidationMessageFor(model => model.Question38, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question38, "Likert5")
+            </li>
+            <li>
+                Sometimes I can’t stop myself from doing something, even if I know it is wrong
+                @Html.ValidationMessageFor(model => model.Question39, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question39, "Reverse_Likert5")
+            </li>
+            <li>
+                I often act without thinking through all the alternatives
+                @Html.ValidationMessageFor(model => model.Question40, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Question40, "Reverse_Likert5")
+            </li>
+        </ol>
+
+
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

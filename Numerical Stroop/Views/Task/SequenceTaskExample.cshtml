@@ -1,0 +1,26 @@
+﻿
+<div class="text-center">
+    <h2>Example</h2>
+
+    <img src="~/Content/SequenceExample.jpg" alt="Sequence Example" class="sequence-example" />
+
+    <ul class="col-xs-offset-2 col-xs-8 text-left">
+        <li>
+            On screen 1 and screen 2 you would press 0 or 1 to continue.
+        </li>
+        <li>
+            On screen 3 you would remember that the letter "G" also appeared two screens ago. So you would press "1" for YES.
+        </li>
+        <li>One screen 4 you would remember that the letter "A" did not appear two screens ago. So you would press "0" for NO.
+            
+        </li>
+        <li>
+            On each screen, as soon as the letter appears <b>
+                respond as quickly as
+                possible.
+            </b> You will be scored on your speed and accuracy.
+        </li>
+    </ul>
+
+    @Html.ActionLink("Click here to continue to practice trials", "SequenceTaskPractice", new { id = ViewBag.Pid }, new { @class = "btn btn-default btn-lg" } )
+    </div>

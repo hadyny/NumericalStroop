@@ -1,0 +1,51 @@
+﻿@model Numerical_Stroop.Models.Scenario
+
+<h2>Scenario 3</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row">
+        <div class="col-xs-8">
+            <h4>
+                Imagine that your vehicle (e.g. car, scooter, motorbike) is having some trouble and the repair will cost $@ViewBag.Question1. Unfortunately,
+                your insurance will only cover a portion of this cost. You need to decide the following:
+            </h4>
+            <ol class="scenario">
+                <li>Pay the full amount in cash. Would you need to use savings? How would you get the cash?</li>
+                <li>Take out a loan. To pay it back, this would require monthly payments of $@ViewBag.Question2 a month for 12 months. This would amount to $@ViewBag.Question3 total.</li>
+                <li>Take a chance, don’t get it repaired, and hope that the car lasts for a while longer. Of course, then it might break-down or stop working completely which could cost more in the long-term.</li>
+            </ol>
+            <h4>How would you go about making this decision? Would it be an easy or a difficult decision for you to make?</h4>
+            <hr />
+            <h4>
+                Please write how you would respond to this scenario in the box below. Be as detailed as possible. You may write as little or as much as you need to answer the question:
+            </h4>
+        </div>
+        <div class="col-xs-4">
+            <img src="~/Content/Image-financial-scenario-3.png" alt="Financial Image" />
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('#Answer').focus();
+</script>
+}

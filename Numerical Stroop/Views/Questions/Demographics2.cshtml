@@ -1,0 +1,97 @@
+﻿@model Numerical_Stroop.Models.DemographicsViewModel2
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="demographics">
+        <h4>This is the last page of questions collecting demographic information.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, "Select your gender", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.Gender, (IEnumerable<SelectListItem>)ViewBag.Gender, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth, "What is your date of birth?", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control date", placeholder = "YYYY-MM-DD" } })
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HouseholdSize, "Select your household size (how many people do you currently live with?):", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.HouseholdSize, (IEnumerable<SelectListItem>)ViewBag.Household, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HouseholdSize, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dependents, "Select how many dependents you have (children/teenagers and/or other family members in your care?):", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.Dependents, (IEnumerable<SelectListItem>)ViewBag.DependentsList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Dependents, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Select your ethnicity (tick any that apply):</label>
+            @Html.ValidationMessage("Ethnicity", new { @class = "text-danger"} )
+            <div class="col-xs-10">
+                <dl class="checkbox">
+                    
+                    <dd><label>@Html.CheckBoxFor(m => m.BlackAfricanAmerican) Black/African American</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.EastAsian) East Asian</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.Hispanic) Hispanic</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.MiddleEastern) Middle Eastern</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.NativeAmerican) Native American</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.SoutheastAsian) Southeast Asian</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.SouthAsian) South Asian</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.Caucasian) Caucasian</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.Indian) Indian (please state region) @Html.EditorFor(m => m.IndianOther)</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.WouldRatherNotSay) Would rather not say</label></dd>
+                    <dd><label>@Html.CheckBoxFor(m => m.Other) Other (please state): @Html.EditorFor(m => m.EthnicityOther)</label></dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, "Where were you when you completed this experiment?", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.Location, (IEnumerable<SelectListItem>)ViewBag.Location, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Interruptions, "Were you interrupted when you completed this experiment?", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.Interruptions, (IEnumerable<SelectListItem>)ViewBag.Interruptions, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Interruptions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(function () {
+        $('.date').datetimepicker({ format: "Y-M-D" });
+    });
+</script>
+}

@@ -1,0 +1,24 @@
+﻿@model System.Int32?
+
+@{ 
+    string _lowString = ViewData["lowString"] == null ? "Strongly disagree" : ViewData["lowString"].ToString();
+    string _highString = ViewData["highString"] == null ? "Strongly agree" : ViewData["highString"].ToString();
+}
+
+<table class="likert table">
+    <thead>
+        <tr>
+            <th colspan="3">@_lowString</th>
+            <th colspan="2">@_highString</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><label>@Html.RadioButtonFor(m => m, 1) 1</label></td>
+            <td><label>@Html.RadioButtonFor(m => m, 2) 2</label></td>
+            <td><label>@Html.RadioButtonFor(m => m, 3) 3</label></td>
+            <td><label>@Html.RadioButtonFor(m => m, 4) 4</label></td>
+            <td><label>@Html.RadioButtonFor(m => m, 5) 5</label></td>
+        </tr>
+    </tbody>
+</table>

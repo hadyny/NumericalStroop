@@ -1,0 +1,52 @@
+﻿@model Numerical_Stroop.Models.Scenario
+
+<h2>Scenario 3</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal row">
+        <div class="col-xs-8">
+            <h4>
+                Imagine you are part of an organization (e.g. sports club, book club, church or religious group, charity) that wants
+                to increase membership by at least @ViewBag.Question1 members.
+                Unfortunately, at the current rate, membership only increases by 10% a year. The board needs to decide the following:
+            </h4>
+            <ol class="scenario">
+                <li>Conduct a marketing campaign close to home. What would be the best way to go about this?</li>
+                <li>Spread the campaign across a number of different areas. (For example, aim for @ViewBag.Question2 new members in 12 different areas.)</li>
+                <li>Decide to rely on word-of-mouth advertising instead (the risk is that this would not raise membership at all.)</li>
+            </ol>
+            <h4>What would you recommend they should do? Do you think it would be an easy or a difficult decision for them to make?</h4>
+            <hr />
+            <h4>
+                Please write how you would respond to this scenario in the box below. Be as detailed as possible. You may write as little or as much as you need to answer the question:
+            </h4>
+        </div>
+        <div class="col-xs-4">
+            <img src="~/Content/Image-control-scenario-3.png" alt="Financial Image" />
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('#Answer').focus();
+</script>
+}

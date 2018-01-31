@@ -1,0 +1,58 @@
+﻿@model Numerical_Stroop.Models.SequencePostPracticeQuestion
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h2>Imagine that the letter "R" appears on your screen.</h2>
+
+        <h3>Would you press "1" for YES or "0" for NO?</h3>
+        <div class="form-group">
+            <label class="control-label col-xs-6" for="Question1">
+                If the letter "R" appeared two trials ago
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question1, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-6" for="Question2">
+                If the letter "B" appeared two trials ago
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question2, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-6" for="Question3">
+                If the letter "A" appeared two trials ago but the letter "R" appeared in the previous trial
+            </label>
+            <div class="col-xs-2">
+                @Html.DropDownListFor(model => model.Question3, (IEnumerable<SelectListItem>)ViewBag.SelectValues, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Question3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <div>
+                <button type="submit" value="" class="btn btn-primary btn-lg">Click here to continue to the task</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

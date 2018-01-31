@@ -1,0 +1,165 @@
+﻿@model Numerical_Stroop.Models.DemographicsViewModel1
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="demographics">
+        <h4>
+            Will you be answering the following financial questions in USD (US Dollars) or INR (Indian Rupees)?
+        </h4>
+
+        <div class="form-group">
+            <div>
+                @Html.DropDownListFor(model => model.AnsweringIn, (IEnumerable<SelectListItem>)ViewBag.AnsweringIn, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AnsweringIn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <hr />
+
+        <h4>
+        The following questions are designed to collect demographic information. Just as a reminder, these 
+        responses are completely confidential and will not be able to be linked back to any one individual.
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IncomeSource, "Select your main form of income:", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.IncomeSource, (IEnumerable<SelectListItem>)ViewBag.Income, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncomeSource, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Income" class="control-label">In the box below please write your best estimate of your <b>current yearly household income</b> (including partner’s income and income from all sources):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Income, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkHours, "What sort of hours do you generally work?", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.WorkHours, (IEnumerable<SelectListItem>)ViewBag.Workhours, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WorkHours, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Education" class="control-label">In the box below please write the <b>highest level of formal education</b> you have attained (e.g. high school, diploma, industry training, apprenticeship, bachelor degree, master degree, PhD, MBA):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Housing, "Which of the following best describes your current housing situation:", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.Housing, (IEnumerable<SelectListItem>)ViewBag.Housing, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Housing, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="HouseholdDebt">In the box below please write your best estimate of your <b>current level of household debt</b> (including partner’s debt, student loan, credit card, mortgage debt and any other money currently owed):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.HouseholdDebt, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HouseholdDebt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="HouseholdAssets" class="control-label">In the box below please write your best estimate of your <b>current level of household assets</b> (including stocks, bonds, real estate, term deposits and savings):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.HouseholdAssets, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HouseholdAssets, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ForgoFood, "In the past month, how often have you had to forgo buying food because you needed the money to pay for other things?", htmlAttributes: new { @class = "control-label" })
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.ForgoFood, (IEnumerable<SelectListItem>)ViewBag.Forgofood, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ForgoFood, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="SavingsAccount" class="control-label">In the box below please write your best estimate of how much money you current have in your <b>savings account:</b></label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.SavingsAccount, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="dont-say">@Html.CheckBoxFor(model => model.SavingsAccountPreferNotToSay, new { htmlAttributes = new { @class = "checkbox" } }) Prefer not to say</label>
+                @Html.ValidationMessageFor(model => model.SavingsAccount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="CheckingAccount" class="control-label">In the box below please write your best estimate of how much money you current have in <b>cash or your checking (everyday) account:</b></label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.CheckingAccount, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="dont-say">@Html.CheckBoxFor(model => model.CheckingAccountPreferNotToSay, new { htmlAttributes = new { @class = "checkbox" } }) Prefer not to say</label>
+                @Html.ValidationMessageFor(model => model.CheckingAccount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="HousingSpend" class="control-label">In the box below please write your best estimate of how much you spend each month on <b>housing</b> (e.g. mortgage, rent, lease, board, other accommodation):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.HousingSpend, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="dont-say">@Html.CheckBoxFor(model => model.HousingSpendPreferNotToSay, new { htmlAttributes = new { @class = "checkbox" } }) Prefer not to say</label>
+                @Html.ValidationMessageFor(model => model.HousingSpend, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="FoodSpend" class="control-label">In the box below please write your best estimate of how much you spend each month on <b>food</b> (for your household and including takeaways):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.FoodSpend, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="dont-say">@Html.CheckBoxFor(model => model.FoodSpendPreferNotToSay, new { htmlAttributes = new { @class = "checkbox" } }) Prefer not to say</label>
+                @Html.ValidationMessageFor(model => model.FoodSpend, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="UtilitySpend" class="control-label">In the box below please write your best estimate of how much you spend each month on <b>utilities</b> (i.e. gas (for home), electricity, water, phone, TV):</label>
+            <div class="col-xs-10">
+                @Html.EditorFor(model => model.UtilitySpend, new { htmlAttributes = new { @class = "form-control" } })
+                <label class="dont-say">@Html.CheckBoxFor(model => model.UtilitySpendPreferNotToSay, new { htmlAttributes = new { @class = "checkbox" } }) Prefer not to say</label>
+                @Html.ValidationMessageFor(model => model.UtilitySpend, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="HealthIssues" class="control-label">Do you have any ongoing <b>health issues</b> that cause significant financial strain?</label>
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.HealthIssues, (IEnumerable<SelectListItem>)ViewBag.Health, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HealthIssues, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="HealthCare" class="control-label">Do you have access to <b>health care</b> if you need it?</label>
+            <div class="col-xs-10">
+                @Html.DropDownListFor(model => model.HealthCare, (IEnumerable<SelectListItem>)ViewBag.Health, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.HealthCare, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <input type="submit" value="Continue >>" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
